@@ -12,12 +12,13 @@ sudo apt install -y chromium
 #install Go
 wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
 tar xvfz go1.14.3.linux-amd64.tar.gz
+rm -f go1.14.3.linux-amd64.tar.gz
 
 #set Go Path
 cat >> ~/.profile << EOF
 export GOROOT=~/go
 export GOPATH=~/GoProjects
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:~/go/bin
 EOF
 
 source ~/.profile
@@ -69,3 +70,11 @@ go get -u google.golang.org/grpc
 #Need to add NPM
 sudo apt install  -y nodejs
 sudo apt install -y npm
+
+#setup github
+git config --global user.name "cmelgreen"
+git config --global user.email "cmelgreen@gmail.com"
+git config --global color.ui true
+
+ssh-keygen -t rsa -C "cmelgreen@gmail.com"
+cat ~/.ssh/id_rsa.pub
