@@ -22,7 +22,7 @@ rm -f go1.14.3.linux-amd64.tar.gz
 #set Go Path
 cat >> ~/.profile << EOF
 export GOROOT=$HOME/go
-export GOPATH=$HOME/go
+export GOPATH=$HOME/GoProjects
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 EOF
