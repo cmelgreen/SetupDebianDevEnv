@@ -30,14 +30,14 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 sudo apt-get install apt-transport-https
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install code
 
 # install postgres
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 RELEASE=$(lsb_release -cs)
 echo "deb http://apt.postgresql.org/pub/repos/apt/ ${RELEASE}"-pgdg main | sudo tee  /etc/apt/sources.list.d/pgdg.list
-sudo apt update
+sudo apt update -y
 sudo apt -y install postgresql-11
 
 sudo apt install -y build-essential
@@ -46,7 +46,7 @@ sudo apt install -y build-essential
 sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-sudo apt update
+sudo apt update -y
 apt-cache policy docker-ce
 sudo apt install -y docker-ce
 sudo chmod 666 /var/run/docker.sock
