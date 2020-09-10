@@ -1,7 +1,7 @@
 echo Email for github?
 
 read email
-name=$(echo $test | grep -o '^[^@]*')
+name=$(echo $email | grep -o '^[^@]*')
 
 mkdir ~/GoProjects
 mkdir ~/GoProjects/src
