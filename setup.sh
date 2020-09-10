@@ -14,13 +14,13 @@ wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
 tar xvfz go1.14.3.linux-amd64.tar.gz
 
 #set Go Path
-cat >> ~/.bashrc << EOF
+cat >> ~/.profile << EOF
 export GOROOT=~/go
 export GOPATH=$HOME/GoProjects
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 EOF
 
-source ~/.bashrc
+source ~/.profile
 
 go get github.com/lib/pq
 
