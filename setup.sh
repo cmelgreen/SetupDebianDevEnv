@@ -14,13 +14,13 @@ wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
 tar xvfz go1.14.3.linux-amd64.tar.gz
 
 #set Go Path
-cat >> .profile << EOF
+cat >> ~/.profile << EOF
 export GOROOT=~/go
 export GOPATH=~/GoProjects
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$PATH:$GOPATH/bin
 EOF
 
-source .profile
+source ~/.profile
 
 go get github.com/lib/pq
 
@@ -29,8 +29,9 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
 sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
-sudo apt install -y apt-transport-https
-sudo apt install -y code
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install code
 
 # install postgres
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -53,6 +54,7 @@ sudo chmod 666 /var/run/docker.sock
 #Add anaconda 
 sudo apt install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+sudo yes | bash Anaconda3-2020.02-Linux-x86_64.sh
 
 sudo apt install -y libpq-dev python3-dev
 pip install psycopg2
