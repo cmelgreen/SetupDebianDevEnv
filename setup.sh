@@ -15,13 +15,14 @@ tar xvfz go1.14.3.linux-amd64.tar.gz
 rm -f go1.14.3.linux-amd64.tar.gz
 
 #set Go Path
-cat >> ~/.profile << EOF
-export GOROOT=~/go
-export GOPATH=~/GoProjects
-export PATH=$PATH:~/go/bin
+cat >> ~/.bashrc << EOF
+export GOROOT=$Home/go
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 EOF
 
-. ~/.profile
+. ~/.bashrc
 
 go get github.com/lib/pq
 
