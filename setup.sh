@@ -1,7 +1,7 @@
-mkdir GoProjects
+mkdir ~/GoProjects
 mkdir ~/GoProjects/src
-mkdir PythonProjects
-mkdir pemKeys
+mkdir ~/PythonProjects
+mkdir ~/pemKeys
 
 # basic update and upgrade
 sudo apt update && sudo apt -y upgrade
