@@ -76,5 +76,5 @@ git config --global user.name "cmelgreen"
 git config --global user.email "cmelgreen@gmail.com"
 git config --global color.ui true
 
-ssh-keygen -t rsa -C "cmelgreen@gmail.com"
+yes \n | ssh-keygen -t rsa -C "cmelgreen@gmail.com"
 cat ~/.ssh/id_rsa.pub
