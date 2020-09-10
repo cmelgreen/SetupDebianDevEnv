@@ -1,3 +1,8 @@
+echo Email for github?
+
+read email
+name=$(echo $test | grep -o '^[^@]*')
+
 mkdir ~/GoProjects
 mkdir ~/GoProjects/src
 mkdir ~/PythonProjects
@@ -34,6 +39,8 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microso
 sudo apt install -y apt-transport-https
 sudo apt update -y
 sudo apt install -y code
+
+rm -f packages.microsoft.gpg
 
 # install postgres
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -73,9 +80,11 @@ sudo apt install  -y nodejs
 sudo apt install -y npm
 
 #setup github
-git config --global user.name "cmelgreen"
-git config --global user.email "cmelgreen@gmail.com"
+git config --global user.name $name
+git config --global user.email $email
 git config --global color.ui true
 
-yes \n | ssh-keygen -t rsa -C "cmelgreen@gmail.com"
+yes \n | ssh-keygen -t rsa -C $email
 cat ~/.ssh/id_rsa.pub
+
+rm -rf ./SetupDebianDevEnv
