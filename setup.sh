@@ -84,7 +84,7 @@ git config --global user.name $name
 git config --global user.email $email
 git config --global color.ui true
 
-yes \n | ssh-keygen -t rsa -C $email
+yes "" | ssh-keygen -t rsa -C $email
 cat ~/.ssh/id_rsa.pub
 
 rm -rf ./SetupDebianDevEnv
