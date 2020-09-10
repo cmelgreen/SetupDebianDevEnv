@@ -20,7 +20,7 @@ export GOPATH=$HOME/GoProjects
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 EOF
 
-source ~/.bash_profile
+source ~/.bashrc
 
 go get github.com/lib/pq
 
