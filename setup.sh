@@ -3,10 +3,12 @@ echo Email for github?
 read email
 name=$(echo $email | grep -o '^[^@]*')
 
-mkdir ~/GoProjects
-mkdir ~/GoProjects/src
-mkdir ~/PythonProjects
-mkdir ~/pemKeys
+mkdir $HOME/GoProjects
+mkdir $HOME/GoProjects/src
+mkdir $HOME/GoProjects/bin
+mkdir $HOME/PyProjects
+mkdir $HOME/JSProjects
+mkdir $HOME/pemKeys
 
 # basic update and upgrade
 sudo apt update && sudo apt -y upgrade
@@ -20,14 +22,14 @@ tar xvfz go1.14.3.linux-amd64.tar.gz
 rm -f go1.14.3.linux-amd64.tar.gz
 
 #set Go Path
-cat >> ~/.profile << EOF
+cat >> $HOME/.profile << EOF
 export GOROOT=$HOME/go
 export GOPATH=$HOME/GoProjects
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 EOF
 
-. ~/.profile
+source $HOME/.profile
 
 go get github.com/lib/pq
 
@@ -85,6 +87,6 @@ git config --global user.email $email
 git config --global color.ui true
 
 yes "" | ssh-keygen -t rsa -C $email
-cat ~/.ssh/id_rsa.pub
+cat $HOME/.ssh/id_rsa.pub
 
 rm -rf ./SetupDebianDevEnv
