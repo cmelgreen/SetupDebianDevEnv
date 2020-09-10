@@ -21,7 +21,7 @@ export GOPATH=~/GoProjects
 export PATH=$PATH:~/go/bin
 EOF
 
-source ~/.profile
+. ~/.profile
 
 go get github.com/lib/pq
 
