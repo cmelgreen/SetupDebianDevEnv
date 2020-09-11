@@ -22,9 +22,10 @@ sudo tar xvfz go1.14.3.linux-amd64.tar.gz -C /usr/local/
 rm -f go1.14.3.linux-amd64.tar.gz
 
 cat >> $HOME/.profile << EOF
-export GOPATH=$HOME/GoProjects
-export GOBIN=/usr/local/go/bin
-export PATH=$PATH:$HOME/GoProjects:/usr/local/go:/usr/local/go/bin
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GOBIN=$GOROOT/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 EOF
 
 . $HOME/.profile
