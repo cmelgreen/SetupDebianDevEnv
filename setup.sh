@@ -21,6 +21,13 @@ wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
 sudo tar xvfz go1.14.3.linux-amd64.tar.gz -C /usr/local/
 rm -f go1.14.3.linux-amd64.tar.gz
 
+cat >> $HOME/.profile << EOF
+export PATH=$PATH:/usr/local/go/bin
+EOF
+
+. $HOME/.profile
+
+
 go get github.com/lib/pq
 
 # install VScode
