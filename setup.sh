@@ -1,5 +1,6 @@
 echo Email for github?
 
+# get email, assume github username is same and split it off from domain
 read email
 name=$(echo $email | grep -o '^[^@]*')
 
