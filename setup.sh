@@ -18,18 +18,8 @@ sudo apt install -y chromium
 
 #install Go
 wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
-tar xvfz go1.14.3.linux-amd64.tar.gz
+tar xvfz go1.14.3.linux-amd64.tar.gz -C /usr/local/
 rm -f go1.14.3.linux-amd64.tar.gz
-
-#set Go Path
-cat >> $HOME/.profile << EOF
-export GOROOT=$HOME/go
-export GOPATH=$HOME/GoProjects
-export GOBIN=$GOROOT/bin
-export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
-EOF
-
-source $HOME/.profile
 
 go get github.com/lib/pq
 
