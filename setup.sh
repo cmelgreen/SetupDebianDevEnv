@@ -23,13 +23,12 @@ rm -f go1.14.3.linux-amd64.tar.gz
 
 cat >> $HOME/.profile << EOF
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export GOBIN=$GOROOT/bin
-export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+export GOPATH=$HOME/GoProjects
+export GOBIN=$HOME/GoProjects/bin
+export PATH=$PATH:/usr/local/go:/usr/local/go/bin:$HOME/GoProjects:$HOME/GoProjects/bin
 EOF
 
 . $HOME/.profile
-
 
 go get github.com/lib/pq
 
