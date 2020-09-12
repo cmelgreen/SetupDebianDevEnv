@@ -1,15 +1,17 @@
+#!/bin/bash
+
 echo Email for github?
 
 # get email, assume github username is same and split it off from domain
-read email
-name=$(echo $email | grep -o '^[^@]*')
+read -r email
+name=$(echo "$email" | grep -o '^[^@]*')
 
-mkdir $HOME/GoProjects
-mkdir $HOME/GoProjects/src
-mkdir $HOME/GoProjects/bin
-mkdir $HOME/PyProjects
-mkdir $HOME/JSProjects
-mkdir $HOME/pemKeys
+mkdir "$HOME"/GoProjects
+mkdir "$HOME"/GoProjects/src
+mkdir "$HOME"/GoProjects/bin
+mkdir "$HOME"/PyProjects
+mkdir "$HOME"/JSProjects
+mkdir "$HOME"/pemKeys
 
 # basic update and upgrade
 sudo apt update && sudo apt -y upgrade
@@ -22,14 +24,14 @@ wget https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
 sudo tar xvfz go1.14.3.linux-amd64.tar.gz -C /usr/local/
 rm -f go1.14.3.linux-amd64.tar.gz
 
-cat >> $HOME/.profile << EOF
+cat >> "$HOME"/.profile << EOF
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/GoProjects
-export GOBIN=$HOME/GoProjects/bin
-export PATH=$PATH:/usr/local/go:/usr/local/go/bin:$HOME/GoProjects:$HOME/GoProjects/bin
+export GOPATH="$HOME"/GoProjects
+export GOBIN="$HOME"/GoProjects/bin
+export PATH="$PATH":/usr/local/go:/usr/local/go/bin:"$HOME"/GoProjects:"$HOME"/GoProjects/bin
 EOF
 
-. $HOME/.profile
+. "$HOME"/.profile
 
 go get github.com/lib/pq
 
@@ -82,11 +84,11 @@ sudo apt install  -y nodejs
 sudo apt install -y npm
 
 #setup github
-git config --global user.name $name
-git config --global user.email $email
+git config --global user.name "$name"
+git config --global user.email "$email"
 git config --global color.ui true
 
-yes "" | ssh-keygen -t rsa -C $email
-cat $HOME/.ssh/id_rsa.pub
+yes "" | ssh-keygen -t rsa -C "$email"
+cat "$HOME"/.ssh/id_rsa.pub
 
 rm -rf ./SetupDebianDevEnv
