@@ -47,7 +47,7 @@ sudo apt install -y code
 rm -f packages.microsoft.gpg
 
 # install postgres
-sudo apt -y install postgresql-11
+# sudo apt -y install postgresql-11
 
 #install docker
 sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
