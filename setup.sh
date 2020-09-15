@@ -47,13 +47,7 @@ sudo apt install -y code
 rm -f packages.microsoft.gpg
 
 # install postgres
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-RELEASE=$(lsb_release -cs)
-echo "deb http://apt.postgresql.org/pub/repos/apt/ ${RELEASE}"-pgdg main | sudo tee  /etc/apt/sources.list.d/pgdg.list
-sudo apt update -y
 sudo apt -y install postgresql-11
-
-sudo apt install -y build-essential
 
 #install docker
 sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
@@ -80,8 +74,8 @@ go get github.com/golang/protobuf/protoc-gen-go
 go get -u google.golang.org/grpc
 
 #Need to add NPM
-sudo apt install  -y nodejs
-sudo apt install -y npm
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+sudo apt install  -y npm nodejs
 
 #setup github
 git config --global user.name "$name"
