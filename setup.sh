@@ -72,6 +72,7 @@ sudo apt install -y protobuf-compiler
 export GO111MODULE=on
 go get github.com/golang/protobuf/protoc-gen-go
 go get -u google.golang.org/grpc
+export GO111MODULE=off
 
 #Need to add NPM
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
