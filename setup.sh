@@ -76,7 +76,7 @@ export GO111MODULE=off
 
 #Need to add NPM
 curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
-sudo apt install  -y npm nodejs
+sudo apt install  -y nodejs
 npm install react
 npm install react-scripts
 npm install react-dom
